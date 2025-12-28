@@ -2,7 +2,7 @@ services:
   api:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ./Dockerfile
     container_name: nest_api
     ports:
       - "3000:3000"
@@ -12,4 +12,18 @@ services:
     environment:
       - NODE_ENV=development
     command: npm run start:dev
+  postgres:
+    container_name: postgres-db
+    image: postgis/postgis:14-3.4
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres/init:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
 
