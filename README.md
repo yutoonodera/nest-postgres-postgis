@@ -1,3 +1,6 @@
+## これはなに
+posgisをローカル環境で使うためのツールです。
+バックエンドにnest.jsを入れてますが、使いません。
 
 ### postgresのDockerイメージ
 postgresのイメージをimage: postgis/postgis:14-3.4に設定
